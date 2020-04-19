@@ -1,0 +1,3 @@
+/nginx-data
+/environment/*.env
+!/environment/*.env.example
