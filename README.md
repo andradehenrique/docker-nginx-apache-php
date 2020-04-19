@@ -62,6 +62,8 @@ Com tudo configurado, basta rodarmos o arquivo `start.sh`. O mesmo espera dois p
 
 Na primeira vez que o script é rodado com `up`, é verificado de existe um certificado criado em uma pasta `nginx-data/certs`, caso contrário, é criado essa pasta e os certificados dentro. Essa pasta é montada no volume do serviço do `nginx-proxy` confome passo anterior.
 
+![start up](https://raw.githubusercontent.com/andradehenrique/docker-nginx-apache-php/images/docs/startup.png)
+
 ### 4º Adicionar domínio no /etc/hosts
 O mesmo domínio que foi configurado no .env na variável `VIRTUAL_HOST`, adicione no `/etc/hosts`.
 ```
@@ -69,6 +71,10 @@ O mesmo domínio que foi configurado no .env na variável `VIRTUAL_HOST`, adicio
 ```
 
 Em seguida basta digitar o domínio `https://projeto1.test` no navegador. Provavelmente aparecerá um alerta de que o site não é seguro, isso porque o certificado é auto assinado, não possui um domínio válido. Basta ir em avançado e permitir que o navegador acesse a página.
+
+![erro certificado](https://raw.githubusercontent.com/andradehenrique/docker-nginx-apache-php/images/docs/navegador1.png)
+
+![certificado aceito](https://raw.githubusercontent.com/andradehenrique/docker-nginx-apache-php/images/docs/navegador2.png)
 
 ## Dicas
 * Para adicionar mais projetos, basta repetir o passo do projeto1, criar um novo .env, adicionar no hosts, no docker-compose.yml e fucnionará, sendo que um container pode acessar o outro pelo container_name, pois partilham do mesmo network.
